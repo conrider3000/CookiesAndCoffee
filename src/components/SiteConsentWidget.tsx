@@ -9,8 +9,9 @@ const STORAGE_KEY = "cookies_and_coffee_site_consent";
 
 /**
  * Widget real do próprio site Cookies & Coffee ("dogfooding").
- * Aparece centralizado na tela, marca a escolha de cookies sem fechar na hora,
- * e só fecha quando a pessoa clica no ✕ após escolher Aceitar ou Recusar.
+ * Aparece TODA vez que o usuário entra ou atualiza o site, centralizado na tela
+ * com o restante do site embaçado atrás (backdrop-blur forte), e só fecha no ✕
+ * após escolher Aceitar ou Recusar.
  */
 export default function SiteConsentWidget() {
   const [visible, setVisible] = useState(false);
@@ -20,8 +21,6 @@ export default function SiteConsentWidget() {
   >(null);
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) return;
-
     const lang = (navigator.language || "en").toLowerCase();
     let tz = "";
     try {
@@ -35,9 +34,8 @@ export default function SiteConsentWidget() {
         (city) => tz.includes(city)
       );
     setMode(isBR ? "BR" : "INTL");
-
-    const timer = setTimeout(() => setVisible(true), 600);
-    return () => clearTimeout(timer);
+    setSelectedConsent(null);
+    setVisible(true);
   }, []);
 
   const handleConsentChange = (status: "accepted" | "rejected") => {
@@ -56,7 +54,13 @@ export default function SiteConsentWidget() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/45 p-4 backdrop-blur-[2px] animate-[ccFadeIn_.3s_ease-out]">
+    <div
+      style={{
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-[#1A0E07]/50 p-4 backdrop-blur-md animate-[ccFadeIn_.25s_ease-out]"
+    >
       <div className="w-full max-w-[560px]">
         <CookieCoffeeWidget
           config={SITE_WIDGET_CONFIG}
