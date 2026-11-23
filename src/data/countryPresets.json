@@ -1,0 +1,334 @@
+{
+  "presets": [
+    {
+      "id": "hybrid-br-global",
+      "name": "Híbrido: Brasil (LGPD) + Global (GDPR/CCPA)",
+      "badge": "Recomendado",
+      "lawName": "LGPD + GDPR / CCPA Auto-Switch",
+      "complianceModel": "hybrid-geo",
+      "legalSummary": "Detecta automaticamente visitantes do Brasil (pt-BR) vs. Internacionais, equilibrando os botões 'Recusar não-essenciais' e 'Aceitar tudo' e alternando entre Pix/APOIA.se e Ko-fi/GitHub Sponsors.",
+      "recommendedPlatforms": [
+        {
+          "name": "Paga um Café",
+          "type": "one-time",
+          "region": "BR",
+          "fee": "0% taxa (Pix direto)",
+          "url": "https://pagaum.cafe/",
+          "highlight": "Setup em 1 min, Pix direto na conta sem intermediação"
+        },
+        {
+          "name": "APOIA.se",
+          "type": "recurring",
+          "region": "BR",
+          "fee": "Crowdfunding BR",
+          "url": "https://apoia.se/",
+          "highlight": "Assinatura mensal via Pix recorrente, cartão nacional e boleto"
+        },
+        {
+          "name": "Ko-fi",
+          "type": "one-time",
+          "region": "INTL",
+          "fee": "0% taxa na doação",
+          "url": "https://ko-fi.com/",
+          "highlight": "Checkout rápido em USD/EUR via PayPal, Apple Pay e cartão"
+        },
+        {
+          "name": "GitHub Sponsors",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "0% taxa para devs",
+          "url": "https://github.com/sponsors",
+          "highlight": "Credibilidade máxima global para patrocínio mensal open source"
+        }
+      ],
+      "copy": {
+        "BR": {
+          "title": "Café y Cookie?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Usamos cookies essenciais para o funcionamento do site e opcionais de análise para melhorar sua experiência conforme a LGPD.",
+          "coffeeLabel": "Café:",
+          "coffeeText": "Curte este projeto? Apoie o desenvolvimento independente com um cafezinho via Pix ou assinatura mensal para mantê-lo gratuito e ativo.",
+          "oneTimeButton": "☕ Café (Pix)",
+          "recurringButton": "🔄 Assinar",
+          "rejectButton": "Recusar não-essenciais",
+          "acceptButton": "Aceitar tudo"
+        },
+        "INTL": {
+          "title": "Coffee & Cookies?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "We use essential cookies to keep this site running and optional analytics cookies in compliance with GDPR & CCPA.",
+          "coffeeLabel": "Coffee:",
+          "coffeeText": "Enjoying this project? Fuel independent open-source work with a quick one-time coffee or monthly sponsorship.",
+          "oneTimeButton": "☕ Buy a Coffee",
+          "recurringButton": "🚀 Sponsor",
+          "rejectButton": "Reject non-essential",
+          "acceptButton": "Accept all"
+        }
+      }
+    },
+    {
+      "id": "br-lgpd",
+      "name": "Brasil — LGPD (Lei Geral de Proteção de Dados)",
+      "badge": "Brasil",
+      "lawName": "LGPD (Lei nº 13.709/2018)",
+      "complianceModel": "opt-in-strict",
+      "legalSummary": "Exige consentimento livre, informado e inequívoco para cookies não-essenciais, com botão de recusa no mesmo nível visual do aceite.",
+      "recommendedPlatforms": [
+        {
+          "name": "Paga um Café",
+          "type": "one-time",
+          "region": "BR",
+          "fee": "0% taxa",
+          "url": "https://pagaum.cafe/",
+          "highlight": "Pix avulso instantâneo direto para sua chave"
+        },
+        {
+          "name": "LivePix",
+          "type": "one-time",
+          "region": "BR",
+          "fee": "Pix interativo",
+          "url": "https://livepix.gg/",
+          "highlight": "Muito popular entre criadores e devs brasileiros"
+        },
+        {
+          "name": "APOIA.se",
+          "type": "recurring",
+          "region": "BR",
+          "fee": "Recorrência BR",
+          "url": "https://apoia.se/",
+          "highlight": "Líder nacional em financiamento recorrente"
+        },
+        {
+          "name": "Catarse Assinaturas",
+          "type": "recurring",
+          "region": "BR",
+          "fee": "Recorrência BR",
+          "url": "https://www.catarse.me/assinaturas",
+          "highlight": "Alternativa sólida para comunidade mensal no Brasil"
+        }
+      ],
+      "copy": {
+        "BR": {
+          "title": "Café y Cookie?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Utilizamos cookies essenciais para segurança e cookies analíticos opcionais em total conformidade com a LGPD (Lei 13.709/18).",
+          "coffeeLabel": "Café:",
+          "coffeeText": "Este software é independente. Pague um café via Pix ou torne-se apoiador mensal para financiar novas funcionalidades.",
+          "oneTimeButton": "☕ Café (Pix)",
+          "recurringButton": "🔄 Assinar",
+          "rejectButton": "Recusar não-essenciais",
+          "acceptButton": "Aceitar tudo"
+        },
+        "INTL": {
+          "title": "Coffee & Cookies?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "We use essential cookies and optional analytics cookies under strict data protection rules (LGPD/GDPR).",
+          "coffeeLabel": "Coffee:",
+          "coffeeText": "Support this independent developer with a one-time coffee or recurring monthly membership.",
+          "oneTimeButton": "☕ Buy a Coffee",
+          "recurringButton": "🚀 Sponsor",
+          "rejectButton": "Reject non-essential",
+          "acceptButton": "Accept all"
+        }
+      }
+    },
+    {
+      "id": "eu-gdpr",
+      "name": "União Europeia & UK — GDPR / ePrivacy",
+      "badge": "Europa",
+      "lawName": "GDPR (EU 2016/679) & UK GDPR",
+      "complianceModel": "opt-in-strict",
+      "legalSummary": "Proíbe dark patterns: 'Reject non-essential' e 'Accept all' devem estar lado a lado na mesma camada. Nenhum script analítico roda antes do opt-in explícito.",
+      "recommendedPlatforms": [
+        {
+          "name": "Ko-fi",
+          "type": "one-time",
+          "region": "INTL",
+          "fee": "0% platform fee",
+          "url": "https://ko-fi.com/",
+          "highlight": "Aceita EUR, GBP e USD com Apple Pay, SEPA e PayPal"
+        },
+        {
+          "name": "GitHub Sponsors",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "0% fee",
+          "url": "https://github.com/sponsors",
+          "highlight": "Faturamento corporativo e individual em múltiplas moedas"
+        },
+        {
+          "name": "Liberapay",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "Non-profit EU",
+          "url": "https://liberapay.com/",
+          "highlight": "Plataforma europeia open-source sem fins lucrativos para doações recorrentes"
+        },
+        {
+          "name": "Open Collective",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "Fiscal Host",
+          "url": "https://opencollective.com/",
+          "highlight": "Ideal para projetos open source que recebem patrocínio com invoice"
+        }
+      ],
+      "copy": {
+        "BR": {
+          "title": "Café y Cookie?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Usamos apenas cookies estritamente necessários até que você autorize cookies analíticos opcionais (padrão GDPR/LGPD).",
+          "coffeeLabel": "Café:",
+          "coffeeText": "Apoie a manutenção deste projeto independente com um café avulso ou assinatura mensal.",
+          "oneTimeButton": "☕ Café (Pix)",
+          "recurringButton": "🔄 Assinar",
+          "rejectButton": "Recusar não-essenciais",
+          "acceptButton": "Aceitar tudo"
+        },
+        "INTL": {
+          "title": "Coffee & Cookies?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Strictly necessary cookies keep this app working. Optional analytics cookies only run with your explicit GDPR consent.",
+          "coffeeLabel": "Coffee:",
+          "coffeeText": "Independent software thrives on community support. Treat the creator to a quick coffee or monthly sponsorship.",
+          "oneTimeButton": "☕ Buy a Coffee",
+          "recurringButton": "🚀 Sponsor",
+          "rejectButton": "Reject non-essential",
+          "acceptButton": "Accept all"
+        }
+      }
+    },
+    {
+      "id": "us-ccpa",
+      "name": "EUA / Califórnia — CCPA / CPRA",
+      "badge": "EUA",
+      "lawName": "CCPA / CPRA (California Privacy Rights Act)",
+      "complianceModel": "opt-out-ccpa",
+      "legalSummary": "Foco em transparência e direito imediato de Opt-Out contra venda ou compartilhamento de dados de rastreamento ('Do Not Share / Reject non-essential').",
+      "recommendedPlatforms": [
+        {
+          "name": "Ko-fi",
+          "type": "one-time",
+          "region": "INTL",
+          "fee": "0% fee",
+          "url": "https://ko-fi.com/",
+          "highlight": "Checkout instantâneo em USD via Stripe e PayPal"
+        },
+        {
+          "name": "Buy Me a Coffee",
+          "type": "one-time",
+          "region": "INTL",
+          "fee": "5% fee",
+          "url": "https://www.buymeacoffee.com/",
+          "highlight": "Alta conversão nos EUA com Apple Pay / Google Pay em 1 toque"
+        },
+        {
+          "name": "GitHub Sponsors",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "0% fee",
+          "url": "https://github.com/sponsors",
+          "highlight": "Padrão ouro para desenvolvedores e pacotes open source"
+        },
+        {
+          "name": "Patreon",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "5-12% fee",
+          "url": "https://www.patreon.com/",
+          "highlight": "Reconhecimento imediato para criadores de conteúdo e ferramentas indie"
+        }
+      ],
+      "copy": {
+        "BR": {
+          "title": "Café y Cookie?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Usamos cookies essenciais para operação e oferecemos controle direto sobre cookies analíticos (LGPD/CCPA).",
+          "coffeeLabel": "Café:",
+          "coffeeText": "Ajude a manter este projeto livre de anúncios invasivos com um cafezinho via Pix ou assinatura.",
+          "oneTimeButton": "☕ Café (Pix)",
+          "recurringButton": "🔄 Assinar",
+          "rejectButton": "Recusar não-essenciais",
+          "acceptButton": "Aceitar tudo"
+        },
+        "INTL": {
+          "title": "Coffee & Cookies?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "We use essential cookies for core features and respect your CCPA/CPRA opt-out rights for non-essential analytics.",
+          "coffeeLabel": "Coffee:",
+          "coffeeText": "We keep this tool ad-free. Drop a quick coffee tip or become a monthly sponsor to keep updates shipping.",
+          "oneTimeButton": "☕ Buy a Coffee",
+          "recurringButton": "🚀 Sponsor",
+          "rejectButton": "Reject non-essential",
+          "acceptButton": "Accept all"
+        }
+      }
+    },
+    {
+      "id": "latam-es",
+      "name": "América Latina + Brasil — Proteção de Dados LatAm",
+      "badge": "LatAm",
+      "lawName": "LGPD (BR) + LFPDPPP (MX) + Ley 25.326 (AR) + Ley 1581 (CO)",
+      "complianceModel": "hybrid-geo",
+      "legalSummary": "Combina conformidade para público brasileiro e hispano-americano/global com opções locais de pagamento instantâneo e cartões internacionais.",
+      "recommendedPlatforms": [
+        {
+          "name": "Paga um Café",
+          "type": "one-time",
+          "region": "BR",
+          "fee": "0% taxa (Pix)",
+          "url": "https://pagaum.cafe/",
+          "highlight": "Ideal para tráfego do Brasil via Pix"
+        },
+        {
+          "name": "Cafecito.app",
+          "type": "one-time",
+          "region": "LATAM",
+          "fee": "MercadoPago",
+          "url": "https://cafecito.app/",
+          "highlight": "Muito utilizado na Argentina e LatAm com MercadoPago"
+        },
+        {
+          "name": "Ko-fi",
+          "type": "one-time",
+          "region": "INTL",
+          "fee": "0% fee",
+          "url": "https://ko-fi.com/",
+          "highlight": "Cobertura global para visitantes fora do Brasil"
+        },
+        {
+          "name": "GitHub Sponsors",
+          "type": "recurring",
+          "region": "INTL",
+          "fee": "0% fee",
+          "url": "https://github.com/sponsors",
+          "highlight": "Assinatura mensal em dólar para toda a região e exterior"
+        }
+      ],
+      "copy": {
+        "BR": {
+          "title": "Café y Cookie?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "Usamos cookies essenciais para o funcionamento do site e opcionais de análise conforme as leis locais de privacidade.",
+          "coffeeLabel": "Café:",
+          "coffeeText": "O café é uma doação rápida (única ou assinatura) para apoiar o trabalho independente e manter os projetos gratuitos e ativos.",
+          "oneTimeButton": "☕ Café (Pix)",
+          "recurringButton": "🔄 Assinar",
+          "rejectButton": "Recusar não-essenciais",
+          "acceptButton": "Aceitar tudo"
+        },
+        "INTL": {
+          "title": "Coffee & Cookies?",
+          "cookiesLabel": "Cookies:",
+          "cookiesText": "We use essential cookies to keep the site working and optional analytics cookies according to regional privacy laws.",
+          "coffeeLabel": "Coffee:",
+          "coffeeText": "Coffee is a quick donation (one-time or monthly) to support independent builders and keep projects free and active.",
+          "oneTimeButton": "☕ Buy a Coffee",
+          "recurringButton": "🚀 Sponsor",
+          "rejectButton": "Reject non-essential",
+          "acceptButton": "Accept all"
+        }
+      }
+    }
+  ]
+}
