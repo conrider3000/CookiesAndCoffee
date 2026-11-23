@@ -25,16 +25,9 @@ export default function Navbar({ onScrollTo }: NavbarProps) {
             height={44}
             className="h-11 w-11 object-contain transition group-hover:scale-105"
           />
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-base font-extrabold tracking-tight text-[#26150D]">
-                Cookies &amp; Coffee
-              </span>
-              <span className="rounded-full border border-[#D9C0A3] bg-[#FAF5EE] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#8C5230]">
-                v2.0
-              </span>
-            </div>
-          </div>
+          <span className="text-base font-extrabold tracking-tight text-[#26150D]">
+            Cookies &amp; Coffee
+          </span>
         </button>
 
         {/* Center Nav */}
