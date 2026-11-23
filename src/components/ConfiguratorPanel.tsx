@@ -296,13 +296,14 @@ export default function ConfiguratorPanel({
 
           <div className="space-y-1.5">
             <span className="block text-xs font-bold text-[#3E2417]">
-              Canto da Tela
+              Posição na Tela
             </span>
-            <div className="grid grid-cols-2 gap-1 rounded-xl border border-[#E5D5C3] bg-[#FAF6F0] p-1">
+            <div className="grid grid-cols-3 gap-1 rounded-xl border border-[#E5D5C3] bg-[#FAF6F0] p-1">
               {(
                 [
-                  { id: "bottom-right", label: "Inferior Direito" },
-                  { id: "bottom-left", label: "Inferior Esquerdo" },
+                  { id: "center", label: "Centro" },
+                  { id: "bottom-right", label: "Inf. Direito" },
+                  { id: "bottom-left", label: "Inf. Esquerdo" },
                 ] as { id: WidgetPosition; label: string }[]
               ).map((pos) => (
                 <button

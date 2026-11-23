@@ -54,7 +54,7 @@ export const SITE_WIDGET_CONFIG: WidgetConfig = {
   intlCoffeeUrl: "https://ko-fi.com/",
   intlSubUrl: "https://github.com/sponsors/conrider3000",
   theme: "coffee",
-  position: "bottom-right",
+  position: "center",
   removeWatermark: true,
 };
 

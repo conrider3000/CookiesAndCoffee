@@ -133,7 +133,7 @@ export default function HomePage() {
             {[
               "0% de comissão nas doações",
               "Mais de 14 plataformas",
-              "2 colunas claras (Café + Cookies)",
+              "2 colunas claras (Cookies + Café)",
               "1 linha de código",
             ].map((item) => (
               <span key={item} className="inline-flex items-center gap-1.5">
@@ -144,8 +144,8 @@ export default function HomePage() {
           </div>
 
           <p className="pt-2 text-xs text-[#8C6D58]">
-            👉 Repare no canto da tela: este site usa o próprio Cookies &amp;
-            Coffee.
+            👉 Repare na tela: este site usa o próprio Cookies &amp; Coffee
+            centralizado.
           </p>
         </section>
 
@@ -286,8 +286,8 @@ export default function HomePage() {
             {[
               {
                 icon: Columns2,
-                title: "Café e Cookies lado a lado",
-                desc: "Cada explicação fica na sua coluna com os próprios botões. O visitante nunca confunde doação com consentimento.",
+                title: "Cookies e Café lado a lado",
+                desc: "Cada explicação fica na sua coluna com os próprios botões. Ao escolher os cookies, a opção fica marcada e a janela só fecha no ✕ para o visitante não esquecer o café.",
               },
               {
                 icon: Globe2,

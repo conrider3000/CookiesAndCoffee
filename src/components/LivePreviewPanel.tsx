@@ -35,25 +35,35 @@ export default function LivePreviewPanel({
   onVisitorModeChange,
   onChangeConfig,
 }: LivePreviewPanelProps) {
-  const [consentStatus, setConsentStatus] = useState<
-    "pending" | "accepted" | "rejected"
-  >("pending");
+  const [selectedConsent, setSelectedConsent] = useState<
+    "accepted" | "rejected" | null
+  >(null);
+  const [isClosed, setIsClosed] = useState<boolean>(false);
   const [isFloatingMode, setIsFloatingMode] = useState<boolean>(false);
   const [lastEventText, setLastEventText] = useState<string>(
-    'Aguardando interação · CustomEvent("cookieConsentChanged") pronto'
+    'Aguardando interação · Escolha Cookies (Aceitar/Recusar) e feche no ✕'
   );
 
   const preset = getPresetById(config.presetId);
 
   const handleConsent = (status: "accepted" | "rejected") => {
-    setConsentStatus(status);
+    setSelectedConsent(status);
     setLastEventText(
-      `localStorage.setItem("cookies_and_coffee_consent", "${status}") → Evento disparado!`
+      `Escolha marcada: "${status}" salva no localStorage! Agora clique no ✕ para fechar (ou apoie no Café).`
+    );
+  };
+
+  const handleCloseWidget = () => {
+    if (!selectedConsent) return;
+    setIsClosed(true);
+    setLastEventText(
+      `Janela fechada no ✕ após escolha "${selectedConsent}" · CustomEvent("cookieConsentChanged") ativo.`
     );
   };
 
   const handleReset = () => {
-    setConsentStatus("pending");
+    setSelectedConsent(null);
+    setIsClosed(false);
     setLastEventText("Consentimento resetado · Janela reaberta no palco");
   };
 
@@ -65,7 +75,6 @@ export default function LivePreviewPanel({
 
   return (
     <div id="playground" className="scroll-mt-24">
-      {/* Playground Studio Card (inspirado no DisplayBridge Playground) */}
       <div className="overflow-hidden rounded-[22px] border-2 border-[#DCC5AD] bg-[#FAF5EE] p-4 shadow-[0_26px_70px_-18px_rgba(46,25,15,0.16)] sm:p-6">
         {/* Top Playground Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#E6D6C3] pb-4">
@@ -89,7 +98,7 @@ export default function LivePreviewPanel({
                   type="button"
                   onClick={() => {
                     onChangeConfig({ style: styleOpt.id });
-                    setConsentStatus("pending");
+                    setIsClosed(false);
                   }}
                   className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-bold transition ${
                     config.style === styleOpt.id
@@ -182,7 +191,7 @@ export default function LivePreviewPanel({
             </div>
           </div>
 
-          {/* Palco com Fundo de Página Real + Janela Café y Cookie em Destaque */}
+          {/* Palco com Fundo de Página Real + Janela Cookie y Café em Destaque */}
           <div
             style={{
               backgroundImage:
@@ -212,39 +221,48 @@ export default function LivePreviewPanel({
                 </span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setIsFloatingMode(!isFloatingMode)}
-                className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-bold transition ${
-                  isFloatingMode
-                    ? "border-[#3D2214] bg-[#3D2214] text-white"
-                    : "border-[#DCC5AD] bg-[#FAF5EE] text-[#3D2214] hover:bg-[#EFE3D4]"
-                }`}
-              >
-                <Pin className="h-3 w-3" />
-                <span>
-                  {isFloatingMode
-                    ? "Desafixar do canto da tela"
-                    : "Testar flutuando no canto real"}
-                </span>
-              </button>
+              <div className="flex items-center gap-2">
+                {selectedConsent && !isClosed && (
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="inline-flex items-center gap-1 rounded-lg border border-[#DCC5AD] bg-white px-2.5 py-1 text-xs font-bold text-[#8C5230] hover:bg-[#FAF5EE]"
+                  >
+                    <RotateCcw className="h-3 w-3" />
+                    <span>Limpar escolha</span>
+                  </button>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setIsFloatingMode(!isFloatingMode)}
+                  className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-bold transition ${
+                    isFloatingMode
+                      ? "border-[#3D2214] bg-[#3D2214] text-white"
+                      : "border-[#DCC5AD] bg-[#FAF5EE] text-[#3D2214] hover:bg-[#EFE3D4]"
+                  }`}
+                >
+                  <Pin className="h-3 w-3" />
+                  <span>
+                    {isFloatingMode
+                      ? "Desafixar da tela"
+                      : "Testar flutuando na tela"}
+                  </span>
+                </button>
+              </div>
             </div>
 
-            {/* O Widget Café y Cookie em si */}
+            {/* O Widget Cookie y Café em si */}
             <div className="my-auto flex w-full items-center justify-center py-2">
-              {consentStatus === "pending" ? (
+              {!isClosed ? (
                 isFloatingMode ? (
                   <div className="max-w-md rounded-2xl border-2 border-dashed border-[#C89D66] bg-white/95 p-6 text-center shadow-sm">
                     <p className="text-base font-extrabold text-[#26150D]">
-                      Olhe para o canto{" "}
-                      {config.position === "bottom-right"
-                        ? "inferior direito"
-                        : "inferior esquerdo"}{" "}
-                      da sua tela! 👇
+                      Widget flutuando na sua tela! 👇
                     </p>
                     <p className="mt-1 text-xs text-[#684B39]">
-                      O widget está flutuando sobre esta página exatamente como
-                      aparecerá no site do seu produto.
+                      O widget está posicionado sobre esta página exatamente
+                      como aparecerá no site do seu produto.
                     </p>
                     <button
                       type="button"
@@ -258,28 +276,26 @@ export default function LivePreviewPanel({
                   <CookieCoffeeWidget
                     config={config}
                     visitorMode={visitorMode}
+                    selectedConsent={selectedConsent}
                     onConsentChange={handleConsent}
+                    onClose={handleCloseWidget}
                   />
                 )
               ) : (
                 <div className="flex max-w-md flex-col items-center rounded-2xl border-2 border-[#DCC5AD] bg-white p-7 text-center shadow-lg">
-                  {consentStatus === "accepted" ? (
+                  {selectedConsent === "accepted" ? (
                     <CheckCircle2 className="mb-2 h-9 w-9 text-[#2E7D32]" />
                   ) : (
                     <XCircle className="mb-2 h-9 w-9 text-[#8C5230]" />
                   )}
                   <p className="text-base font-extrabold text-[#26150D]">
-                    {consentStatus === "accepted"
-                      ? 'Consentimento salvo: "accepted"'
-                      : 'Consentimento salvo: "rejected"'}
+                    {selectedConsent === "accepted"
+                      ? 'Janela fechada com "accepted"'
+                      : 'Janela fechada com "rejected"'}
                   </p>
                   <p className="mt-1 text-xs leading-relaxed text-[#684B39]">
-                    O banner foi ocultado, a escolha foi salva no{" "}
-                    <code>localStorage</code> e o evento{" "}
-                    <code className="rounded bg-[#FAF5EE] px-1.5 py-0.5 font-mono font-bold text-[#3D2214]">
-                      cookieConsentChanged
-                    </code>{" "}
-                    notificou sua página.
+                    Você escolheu a opção de cookies (que ficou marcada sem
+                    fechar o café) e clicou no <strong>✕</strong> para fechar.
                   </p>
                   <button
                     type="button"
@@ -303,38 +319,44 @@ export default function LivePreviewPanel({
           </div>
 
           <div className="flex items-center gap-3">
-            {consentStatus !== "pending" && (
+            {(isClosed || selectedConsent) && (
               <button
                 type="button"
                 onClick={handleReset}
                 className="inline-flex items-center gap-1 font-bold text-[#8C5230] underline hover:text-[#26150D]"
               >
                 <RotateCcw className="h-3 w-3" />
-                <span>Reabrir janela</span>
+                <span>Resetar estado</span>
               </button>
             )}
             <span className="font-mono text-[11px] text-[#8C6D58]">
-              Vanilla JS · ~2.4 KB · Zero dependências
+              Vanilla JS · Zero dependências
             </span>
           </div>
         </div>
       </div>
 
       {/* Modo Flutuante Real na Página */}
-      {isFloatingMode && consentStatus === "pending" && (
+      {isFloatingMode && !isClosed && (
         <div
-          className={`fixed bottom-5 z-50 w-[calc(100vw-40px)] ${
-            config.style === "banner"
-              ? "max-w-[670px]"
-              : config.style === "compact"
-                ? "max-w-[355px]"
-                : "max-w-[400px]"
-          } ${config.position === "bottom-left" ? "left-5" : "right-5"}`}
+          className={
+            config.position === "center"
+              ? "fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-[2px]"
+              : `fixed bottom-5 z-50 w-[calc(100vw-40px)] ${
+                  config.style === "banner"
+                    ? "max-w-[760px]"
+                    : config.style === "compact"
+                      ? "max-w-[540px]"
+                      : "max-w-[560px]"
+                } ${config.position === "bottom-left" ? "left-5" : "right-5"}`
+          }
         >
           <CookieCoffeeWidget
             config={config}
             visitorMode={visitorMode}
+            selectedConsent={selectedConsent}
             onConsentChange={handleConsent}
+            onClose={handleCloseWidget}
           />
         </div>
       )}

@@ -43,7 +43,7 @@
       ],
       "copy": {
         "BR": {
-          "title": "Café y Cookie?",
+          "title": "Cookie y Café?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Usamos cookies essenciais para o funcionamento do site e opcionais de análise para melhorar sua experiência conforme a LGPD.",
           "coffeeLabel": "Café:",
@@ -54,7 +54,7 @@
           "acceptButton": "Aceitar tudo"
         },
         "INTL": {
-          "title": "Coffee & Cookies?",
+          "title": "Cookies & Coffee?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "We use essential cookies to keep this site running and optional analytics cookies in compliance with GDPR & CCPA.",
           "coffeeLabel": "Coffee:",
@@ -109,7 +109,7 @@
       ],
       "copy": {
         "BR": {
-          "title": "Café y Cookie?",
+          "title": "Cookie y Café?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Utilizamos cookies essenciais para segurança e cookies analíticos opcionais em total conformidade com a LGPD (Lei 13.709/18).",
           "coffeeLabel": "Café:",
@@ -120,7 +120,7 @@
           "acceptButton": "Aceitar tudo"
         },
         "INTL": {
-          "title": "Coffee & Cookies?",
+          "title": "Cookies & Coffee?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "We use essential cookies and optional analytics cookies under strict data protection rules (LGPD/GDPR).",
           "coffeeLabel": "Coffee:",
@@ -175,7 +175,7 @@
       ],
       "copy": {
         "BR": {
-          "title": "Café y Cookie?",
+          "title": "Cookie y Café?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Usamos apenas cookies estritamente necessários até que você autorize cookies analíticos opcionais (padrão GDPR/LGPD).",
           "coffeeLabel": "Café:",
@@ -186,7 +186,7 @@
           "acceptButton": "Aceitar tudo"
         },
         "INTL": {
-          "title": "Coffee & Cookies?",
+          "title": "Cookies & Coffee?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Strictly necessary cookies keep this app working. Optional analytics cookies only run with your explicit GDPR consent.",
           "coffeeLabel": "Coffee:",
@@ -241,7 +241,7 @@
       ],
       "copy": {
         "BR": {
-          "title": "Café y Cookie?",
+          "title": "Cookie y Café?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Usamos cookies essenciais para operação e oferecemos controle direto sobre cookies analíticos (LGPD/CCPA).",
           "coffeeLabel": "Café:",
@@ -252,7 +252,7 @@
           "acceptButton": "Aceitar tudo"
         },
         "INTL": {
-          "title": "Coffee & Cookies?",
+          "title": "Cookies & Coffee?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "We use essential cookies for core features and respect your CCPA/CPRA opt-out rights for non-essential analytics.",
           "coffeeLabel": "Coffee:",
@@ -307,7 +307,7 @@
       ],
       "copy": {
         "BR": {
-          "title": "Café y Cookie?",
+          "title": "Cookie y Café?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "Usamos cookies essenciais para o funcionamento do site e opcionais de análise conforme as leis locais de privacidade.",
           "coffeeLabel": "Café:",
@@ -318,7 +318,7 @@
           "acceptButton": "Aceitar tudo"
         },
         "INTL": {
-          "title": "Coffee & Cookies?",
+          "title": "Cookies & Coffee?",
           "cookiesLabel": "Cookies:",
           "cookiesText": "We use essential cookies to keep the site working and optional analytics cookies according to regional privacy laws.",
           "coffeeLabel": "Coffee:",

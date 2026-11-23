@@ -7,7 +7,7 @@ export type RegionPresetId =
 
 export type WidgetTheme = "coffee" | "light" | "dark";
 export type WidgetStyle = "classic" | "compact" | "banner";
-export type WidgetPosition = "bottom-right" | "bottom-left";
+export type WidgetPosition = "bottom-right" | "bottom-left" | "center";
 export type VisitorSimulationMode = "BR" | "INTL";
 
 export interface PlatformRecommendation {
